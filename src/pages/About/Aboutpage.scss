@@ -1,0 +1,26 @@
+h2 {
+  color: white;
+}
+
+.about_page {
+  padding: 20px;
+  text-align:center; 
+}
+
+.about_page h3 {
+  border: 2px solid rgb(156, 156, 189);
+  padding: 10px;
+  margin-bottom: 20px;
+  color: rgb(20, 20, 86); 
+  background-color: aliceblue;
+ margin-bottom: 40px;
+}
+
+.about_page {
+  background-image: url("../../assets/Images/Toronto.jpg");
+
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-size:cover;
+  background-position: center;
+}

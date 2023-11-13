@@ -1,15 +1,13 @@
 .home {
   background-color: white;
-  color: black;
+  color: rgb(20, 20, 86);
   padding: 1rem;
 }
 
-
 .city-list {
- flex-direction: row;
-    justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
 }
-
 
 .city-link {
   text-decoration: none;

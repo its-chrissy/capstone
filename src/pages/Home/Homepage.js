@@ -12,13 +12,14 @@ const cities = [
 const HomePage = () => {
   return (
     <section className="home">
-      <h1>Your City Escape Awaits</h1>
+      <h1>The affordable way to escape!</h1>
       <div className="city-list">
         {cities.map((city) => (
           <Link
             key={city.name}
             to={`/${city.name.toLowerCase()}`}
-            className="city-link">
+            className="city-link"
+          >
             <Card key={city.name} city={city} />
           </Link>
         ))}
