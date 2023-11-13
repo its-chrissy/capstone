@@ -1,0 +1,29 @@
+.city-card {
+  border: 3px solid rgb(13, 13, 78);
+  padding: 5rem;
+  margin: 1rem;
+  text-align: center;
+  background-size:cover;
+  background-position: center;
+  color: white;
+  position: relative;
+  filter: brightness(0.9);
+  transition: color 0.3s ease;
+}
+
+
+.city-card:hover {
+  color: #070b39; 
+}
+
+.toronto {
+  background-image: url("../../assets/Images/Toronto.jpg");
+}
+
+.newyork {
+  background-image: url("../../assets/Images/NewYork.webp");
+}
+
+.miami {
+  background-image: url("../../assets/Images/miami.webp");
+}

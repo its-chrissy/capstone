@@ -1,0 +1,17 @@
+.home {
+  background-color: white;
+  color: black;
+  padding: 1rem;
+}
+
+
+.city-list {
+ flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.city-link {
+  text-decoration: none;
+  color: inherit;
+}
