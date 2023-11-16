@@ -1,23 +1,5 @@
-// .city_page {
-//   padding: 20px;
-
-// }
-
-// .hotels_section,
-// .restaurants_section {
-//   margin-top: 20px;
-// }
-
-// .hotels_section h2,
-// .restaurants_section h2 {
-//   margin-bottom: 10px;
-// }
-
-
 @use "../../styles/partials/mixins.scss" as *;
 @use "../../styles//partials/variables.scss" as *;
-
-
 
 .city_page {
   padding: 20px;
@@ -45,6 +27,6 @@
 .gallery_grid img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   border-radius: 3px;
 }

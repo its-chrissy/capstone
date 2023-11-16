@@ -1,19 +1,33 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles//partials/variables.scss" as *;
+
 .city-card {
   border: 3px solid rgb(13, 13, 78);
   padding: 5rem;
   margin: 1rem;
   text-align: center;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
   color: white;
   position: relative;
-  filter: brightness(0.9);
+  filter: brightness(0.8);
   transition: color 0.3s ease;
+  @include desktop {
+      padding-top: 3rem;
+      padding: 9rem;
+     
+  }
+
 }
 
+.city-card h2 {
+  @include tablet {
+    font-size: xx-large;
+  }
+}
 
 .city-card:hover {
-  color: #070b39; 
+  color: #070b39;
 }
 
 .toronto {

@@ -1,7 +1,16 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles//partials/variables.scss" as *;
+
 .home {
   background-color: white;
   color: rgb(20, 20, 86);
   padding: 1rem;
+  padding-top: 2rem;
+  @include desktop {
+      padding-top: 3rem;
+        padding-bottom: 9rem;
+  }
+
 }
 
 .city-list {

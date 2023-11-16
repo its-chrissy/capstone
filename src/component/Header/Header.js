@@ -6,14 +6,14 @@ const Header = () => {
   return (
     <nav>
       <div className="logo">
-        <Link to="/">City Escape</Link>
+        <Link to="/">CITY ESCAPE</Link>
       </div>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">HOME</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about">ABOUT</Link>
         </li>
       </ul>
     </nav>

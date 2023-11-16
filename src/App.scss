@@ -1,5 +1,8 @@
+@use "./styles/partials/mixins.scss" as *;
+@use "./styles//partials/variables.scss" as *;
+
 .app {
   text-align: center;
-   margin: 0;
-  font-family: 'Arial', sans-serif;
+  margin: 0;
+  font-family: "Arial", sans-serif;
 }
