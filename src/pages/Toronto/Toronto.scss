@@ -33,6 +33,12 @@
   margin-bottom: 10px;
 }
 
+// .cards{
+// @include desktop {
+//     justify-items: center;
+//   }
+// }
+
 .gallery_grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -50,21 +56,22 @@
   color: rgb(63, 63, 63);
 }
 
-ul {
+.hotels_list-ul {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .hotels_list li {
   background-color: rgb(4, 78, 142);
   border-right: 0px solid white;
   color: white;
-  padding: 11px 0;
+  padding: 11px 3px;
   margin: 1px;
   @include desktop {
-    margin:  2px;
+    margin: 2px;
     margin-left: 25px;
-    padding: 9px 0;
   }
 }
 

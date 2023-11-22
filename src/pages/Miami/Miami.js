@@ -8,7 +8,7 @@ const MiamiPage = () => {
   const [cities, setCities] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/city").then((response) => {
+    axios.get("http://localhost:8080/miami").then((response) => {
       setCities(response.data);
     });
   }, []);
@@ -58,7 +58,7 @@ const MiamiPage = () => {
         <h2>HOTELS</h2>
         <div className="hotels_list">
           <h3 className="hotels_list_h3">4+ Stars less than $200 a night!</h3>
-          <ul>
+          <ul className="hotels_list-ul">
             <li>
               <a href="https://themeridianmiami.com/">The Meridian Hotel</a>
             </li>

@@ -32,3 +32,35 @@
   border-radius: 3px;
 
 }
+
+
+
+.hotels_list h3 {
+  color: rgb(63, 63, 63);
+}
+
+.hotels_list-ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hotels_list li {
+  background-color: rgb(4, 78, 142);
+  border-right: 0px solid white;
+  color: white;
+  padding: 11px 0;
+  margin: 1px;
+  @include desktop {
+    margin: 2px;
+    margin-left: 25px;
+    padding: 9px 0;
+  }
+}
+
+.hotels_list {
+  margin: 0;
+  padding: 0;
+}
+

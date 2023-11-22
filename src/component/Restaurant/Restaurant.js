@@ -7,7 +7,7 @@ const RestaurantsList = ({ restaurants }) => {
   }
 
   return (
-    <section className="">
+    <section className="cards">
       {restaurants.map((restaurant) => {
         return <SingleRestaurant restaurant={restaurant} />;
       })}

@@ -8,7 +8,7 @@ const TorontoPage = () => {
   const [cities, setCities] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/city").then((response) => {
+    axios.get("http://localhost:8080/toronto").then((response) => {
       setCities(response.data);
     });
   }, []);
@@ -55,7 +55,7 @@ const TorontoPage = () => {
         <h2>HOTELS</h2>
         <div className="hotels_list">
           <h3 className="hotels_list_h3">4+ Stars less than $200 a night!</h3>
-          <ul>
+          <ul className="hotels_list-ul">
             <li>
               <a href="https://novotel.accor.com/a/en/canada.html">
                 Novotel Toronto Centre

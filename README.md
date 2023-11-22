@@ -25,7 +25,7 @@ uses google maps to pin point Hotels around each city that are high quality and 
 ## How does it work
 
 City Escape uses Yelp Fusion API to filter high quality restaurants at low prices in different cities.
-It also usues google maps to pin points cheap hotels in each city with 4 star ratings and above.
+It also uses google maps to pin points cheap hotels in each city with 4 star ratings and above.
 
 ## Challenges
 
@@ -37,7 +37,7 @@ It also usues google maps to pin points cheap hotels in each city with 4 star ra
 
 - I was able to get google maps to show up on all of my pages
   -I was able to figure out how to pin markers to each map
-  -I was able to fetch data fom my Yelp API to my Toronto Page for Food
+  -I was able to fetch data based on my Yelp API to each city Page for Food
   -I loved working on this project and being creative
 
 <!-- # Getting Started with Create React App

@@ -15,7 +15,7 @@ const NewyorkPage = () => {
   const [citiesn, setCitiesn] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/city").then((response) => {
+    axios.get("http://localhost:8080/newyork").then((response) => {
       setCitiesn(response.data);
     });
   }, []);
@@ -75,7 +75,7 @@ const NewyorkPage = () => {
         <h2>HOTELS</h2>
         <div className="hotels_list">
           <h3 className="hotels_list_h3">4+ Stars less than $200 a night!</h3>
-          <ul>
+          <ul className="hotels_list-ul">
             <li>
               <a href="https://www.riu.com/en/hotel/usa/new-york/hotel-riu-plaza-new-york-times-square/">
                 Hotel Riu Plaza
