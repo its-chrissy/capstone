@@ -1,8 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Newyork.scss";
 import Maps from "../../component/Maps/Maps";
+import axios from "axios";
+import RestaurantsList from "../../component/Restaurant/Restaurant";
 
 const NewyorkPage = () => {
+  // const [hotels, setHotels] = useState([]);
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:8080/hotels").then((response) => {
+  //     setHotels(response.data);
+  //   });
+  // }, []);
+  const [citiesn, setCitiesn] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/city").then((response) => {
+      setCitiesn(response.data);
+    });
+  }, []);
+
+  const hotels = [
+    {
+      name: "Hotel Riu Plaza New York Times",
+      lat: 40.76156044538144,
+      lng: -73.98815847154032,
+    },
+
+    {
+      name: "Pestana Park Ave.",
+      lat: 40.75239325989206,
+      lng: -73.97888875717308,
+    },
+
+    {
+      name: "Hilton Times Square",
+      lat: 40.758014318214975,
+      lng: -73.98812865444295,
+    },
+
+    {
+      name: "Millennium Hotel",
+      lat: 40.75833938984744,
+      lng: -73.98357962794793,
+    },
+
+    {
+      name: "Park Central Hotel",
+      lat: 40.76588060547543,
+      lng: -73.98109053797894,
+    },
+  ];
+
+  const foods = [
+    { address: "King Taps", lat: 43.648714289687405, lng: -79.38025291999334 },
+
+    { address: "Gusto", lat: 43.645584810222466, lng: -79.39994343861073 },
+
+    { address: "PAI", lat: 43.64803717468791, lng: -79.38853985004046 },
+  ];
+
   return (
     <div className="city_page">
       <h1>NEW YORK</h1>
@@ -16,13 +73,44 @@ const NewyorkPage = () => {
 
       <section className="hotels_section">
         <h2>HOTELS</h2>
-        <Maps />
+        <div className="hotels_list">
+          <h3 className="hotels_list_h3">4+ Stars less than $200 a night!</h3>
+          <ul>
+            <li>
+              <a href="https://www.riu.com/en/hotel/usa/new-york/hotel-riu-plaza-new-york-times-square/">
+                Hotel Riu Plaza
+              </a>
+            </li>
+            <li>
+              <a href="https://www.pestana.com/en/hotel/pestana-park-avenue?">
+                Pestana Park Ave.
+              </a>
+            </li>
+            <li>
+              <a href="https://www.hilton.com/en/hotels/nyctshh-hilton-times-square/?">
+                Hilton Times Square
+              </a>
+            </li>
+            <li>
+              <a href="https://www.millenniumhotels.com/en/new-york/millennium-hotel-broadway-times-square/">
+                Millennium Hotel
+              </a>
+            </li>
+            <li>
+              <a href="https://www.parkcentralny.com/">Park Central Hotel</a>
+            </li>
+          </ul>
+        </div>
+        <Maps markers={hotels} />
       </section>
 
       <section className="restaurants_section">
         <h2>FOOD</h2>
-        <Maps />
+        <Maps markers={citiesn} />
+        <div className="restaurants_section2"></div>
       </section>
+
+      <RestaurantsList restaurants={citiesn} />
 
       <section className="gallery_section">
         <h2>GALLERY</h2>

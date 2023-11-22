@@ -20,9 +20,9 @@ const Homepage = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const closePopup = () => {
-    setShowPopup(false);
-  };
+  // const closePopup = () => {
+  //   setShowPopup(false);
+  // };
 
   return (
     <section className="home">
@@ -39,7 +39,7 @@ const Homepage = () => {
             <Card key={city.name} city={city} />
           </Link>
         ))}
-        {showPopup && <Emailpopup onClose={closePopup} />}
+        {/* {showPopup && <Emailpopup onClose={closePopup} />} */}
       </div>
     </section>
   );

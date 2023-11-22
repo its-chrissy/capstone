@@ -15,6 +15,9 @@ const Header = () => {
         <li>
           <Link to="/about">ABOUT</Link>
         </li>
+        <li className="search_bar">
+          <input type="text" placeholder="Search..." />
+        </li>
       </ul>
     </nav>
   );

@@ -1,0 +1,83 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles//partials/variables.scss" as *;
+
+.restaurant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: aliceblue;
+  background: linear-gradient(295deg, rgb(20, 28, 47) 30%, rgb(4, 78, 142) 86%);
+  border-radius: 5px;
+  padding: 1rem;
+  width: 310px;
+  height: 350px;
+  @include tablet {
+    width: 610px;
+    height: 250px;
+    @include desktop {
+      width: 750px;
+      height: 250px;
+    }
+  }
+}
+
+.restaurant-pic {
+  width: 180px;
+  height: 140px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  @include tablet {
+    margin: 75px;
+    width: 210px;
+    height: 170px;
+    @include desktop {
+      margin: 90px;
+      width: 250px;
+      height: 200px;
+      justify-items: center;
+    }
+  }
+}
+
+.restaurant-box {
+  @include tablet {
+  }
+}
+
+div.restaurant {
+  margin-top: 15px;
+  @include tablet {
+    margin: 15px;
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-left: 40px;
+  }
+  @include desktop {
+    margin-left: 7rem;
+  }
+}
+
+.restaurant-name {
+  font-size: larger;
+  @include desktop {
+    font-size: x-large;
+    margin: 15px;
+    padding-right: 65px;
+  }
+}
+
+.restaurant-rating .restaurant-price .restaurant-location,
+.restaurant-city,
+.restaurant-phone {
+  margin: 1px;
+  @include desktop {
+    margin: 15px;
+    padding-right: 65px;
+    padding-left: 44px;
+  }
+}

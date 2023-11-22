@@ -1,70 +1,92 @@
-// import React, { useEffect, useState } from "react";
-// import "../Toronto/Toronto.scss";
-
-// const TorontoPage = () => {
-//   const [hotels, setHotels] = useState([]);
-
-//   useEffect(() => {
-//     const apiKey = "AIzaSyC6GLKy0ilHEEK7cJ2ERnEIU1k30AeseOU";
-//     const city = "Toronto";
-
-//     fetch(
-//       `https://maps.googleapis.com/maps/api/place/textsearch/json?query=5+star+hotels+in+${city}&key=${apiKey}`
-//     )
-//       .then((response) => response.json())
-//       .then((data) => {
-//         setHotels(data.results);
-//       })
-//       .catch((error) => console.error("Error fetching hotel data:", error));
-//   }, []);
-
-//   return (
-//     <div className="city_page">
-//       <h1>Toronto</h1>
-//       <p>Brief description of Toronto...</p>
-
-//       <section className="hotels_section">
-//         <h2>Hotels</h2>
-//         <ul>
-//           {hotels.map((hotel) => (
-//             <li key={hotel.place_id}>
-//               {hotel.name} - {hotel.rating} stars
-//             </li>
-//           ))}
-//         </ul>
-//       </section>
-
-//       <section className="restaurants_section">
-//         <h2>Restaurants</h2>
-//       </section>
-//     </div>
-
-//   );
-// };
-
-// export default TorontoPage;
-
-// TorontoPage.js
-
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../Toronto/Toronto.scss";
+import axios from "axios";
+import RestaurantsList from "../../component/Restaurant/Restaurant";
 import Maps from "../../component/Maps/Maps";
 
 const TorontoPage = () => {
+  const [cities, setCities] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/city").then((response) => {
+      setCities(response.data);
+    });
+  }, []);
+
+  const hotels = [
+    { name: "Novotel", lat: 43.6471467671133, lng: -79.37428792230747 },
+
+    {
+      name: "The Rex Hotel",
+      lat: 43.6514142601538,
+      lng: -79.38837100284931,
+    },
+
+    {
+      name: "Hotel Victoria",
+      lat: 43.64825120295352,
+      lng: -79.3781084587085,
+    },
+
+    {
+      name: "Cambridge Suites Toronto",
+      lat: 43.6521496994395,
+      lng: -79.37748847840886,
+    },
+
+    {
+      name: "Holiday Inn Express",
+      lat: 43.65265630788467,
+      lng: -79.37283564821534,
+    },
+  ];
+
   return (
     <div className="city_page">
       <h1>TORONTO</h1>
-      <p> Open your arms to one of Canada's most vibrant cities.Toronto is a growing city and there is plenty to explore. 
-        Find a quality hotel that's budget friendly  and explore some of Toronto's multicultural foods that are delicious and affordable! </p>
+      <p>
+        {" "}
+        Open your arms to one of Canada's most vibrant cities.Toronto is a
+        growing city and there is plenty to explore. Find a quality hotel that's
+        budget friendly and explore some of Toronto's multicultural foods that
+        are delicious and affordable!{" "}
+      </p>
       <section className="hotels_section">
         <h2>HOTELS</h2>
-        <Maps />
+        <div className="hotels_list">
+          <h3 className="hotels_list_h3">4+ Stars less than $200 a night!</h3>
+          <ul>
+            <li>
+              <a href="https://novotel.accor.com/a/en/canada.html">
+                Novotel Toronto Centre
+              </a>
+            </li>
+            <li>
+              <a href="https://www.therex.ca/hotel">The Rex Hotel</a>
+            </li>
+            <li>
+              <a href="https://www.hotelvictoria.com">Hotel Victoria</a>
+            </li>
+            <li>
+              <a href="https://www.cambridgesuitestoronto.com">
+                Cambridge Suites Toronto
+              </a>
+            </li>
+            <li>
+              <a href="https://www.hiexpress.com">Holiday Inn Express</a>
+            </li>
+          </ul>
+        </div>
+        <Maps markers={hotels} />
       </section>
 
       <section className="restaurants_section">
         <h2>FOOD</h2>
-        <Maps />
+        <Maps markers={cities} />
+        <div className="restaurants_section2"></div>
       </section>
+
+      <RestaurantsList restaurants={cities} />
 
       <section className="gallery_section">
         <h2>GALLERY</h2>

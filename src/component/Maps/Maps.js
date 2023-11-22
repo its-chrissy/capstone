@@ -1,26 +1,3 @@
-// import { Component } from "react";
-// import { Map, GoogleApiWrapper } from "google-maps-react";
-
-// class MapContainer extends Component {
-//   render() {
-//     return (
-//       <Map
-//         google={this.props.google}
-//         style={{ width: "100%", height: "100%" }}
-//         zoom={10}
-//         initialCenter={{
-//           lat: 40.712776,
-//           lng: -74.005974,
-//         }}
-//       />
-//     );
-//   }
-// }
-
-// export default GoogleApiWrapper({
-//   apiKey: "AIzaSyC6GLKy0ilHEEK7cJ2ERnEIU1k30AeseOU",
-// })(MapContainer);
-
 import {
   GoogleMap,
   Marker,
@@ -29,6 +6,7 @@ import {
 } from "@react-google-maps/api";
 import { useCallback, useState, useEffect } from "react";
 import "../Maps/Maps.scss";
+import { MarkerF } from "@react-google-maps/api";
 
 const containerStyle = {
   width: "100%",
@@ -36,33 +14,30 @@ const containerStyle = {
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523,
+  lat: 48.1667,
+  lng: -100.1667,
 };
 
-const Maps = () => {
+const Maps = ({ markers }) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyC6GLKy0ilHEEK7cJ2ERnEIU1k30AeseOU",
   });
   const [mapRef, setMapRef] = useState();
   const [isOpen, setIsOpen] = useState(false);
   const [infoWindowData, setInfoWindowData] = useState();
-  const markers = [
-    { address: "Address1", lat: 18.5204, lng: 73.8567 },
-    { address: "Address2", lat: 18.5314, lng: 73.8446 },
-    { address: "Address3", lat: 18.5642, lng: 73.7769 },
-  ];
+
+  console.log(markers);
 
   const onMapLoad = (map) => {
     setMapRef(map);
-    const bounds = new window.google.maps.LatLngBounds(center);
+    const bounds = new window.google.maps.LatLngBounds();
     markers?.forEach(({ lat, lng }) => bounds.extend({ lat, lng }));
     map.fitBounds(bounds);
   };
 
-  const handleMarkerClick = (id, lat, lng, address) => {
+  const handleMarkerClick = (id, lat, lng, name) => {
     mapRef?.panTo({ lat, lng });
-    setInfoWindowData({ id, address });
+    setInfoWindowData({ id, name });
     setIsOpen(true);
   };
 
@@ -78,16 +53,16 @@ const Maps = () => {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={10}
+          zoom={8}
           onLoad={onMapLoad}
           onUnmount={onUnmount}
         >
-          {markers.map(({ address, lat, lng }, ind) => (
-            <Marker
+          {markers.map(({ name, lat, lng }, ind) => (
+            <MarkerF
               key={ind}
               position={{ lat, lng }}
               onClick={() => {
-                handleMarkerClick(ind, lat, lng, address);
+                handleMarkerClick(ind, lat, lng, name);
               }}
             >
               {isOpen && infoWindowData?.id === ind && (
@@ -96,10 +71,10 @@ const Maps = () => {
                     setIsOpen(false);
                   }}
                 >
-                  <h3>{infoWindowData.address}</h3>
+                  <h3>{infoWindowData.name}</h3>
                 </InfoWindow>
               )}
-            </Marker>
+            </MarkerF>
           ))}
         </GoogleMap>
       )}
